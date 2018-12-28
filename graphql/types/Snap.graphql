@@ -1,0 +1,27 @@
+scalar Date
+
+type Query{
+    snap(id: ID!): Snap!
+    snaps: [Snap!]!
+}
+
+type Snap{
+    id: ID!
+    text: String!
+    createdAt: Date!
+    user: User
+}
+
+type Mutation{
+    addSnap(data: AddSnapInput): Snap
+}
+
+input AddSnapInput{
+    text: String!
+    userId: ID!
+    createdAt: Date
+}
+
+type Subscription {
+    snapAdded(userId: ID): Snap!
+}
