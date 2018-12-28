@@ -22,7 +22,8 @@ const server = new ApolloServer({
         pubsub,
         activeUser: req ? req.activeUser : null
     }),
-	introspection: true
+    introspection: true,
+    playground: true
 });
 
 mongoose.connect(process.env.DB_HOST, { useNewUrlParser: true })
