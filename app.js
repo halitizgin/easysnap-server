@@ -50,7 +50,7 @@ server.applyMiddleware({ app });
 const httpServer = http.createServer(app);
 server.installSubscriptionHandlers(httpServer);
 
-httpServer.listen({ port: 4001 }, () => {
+httpServer.listen(process.env.PORT || 4001, () => {
     console.log(`🚀 Server ready at http://localhost:4001${server.graphqlPath}`);
     console.log(`🚀 Subscriptions ready at http://localhost:4001${server.subscriptionsPath}`);
 });
